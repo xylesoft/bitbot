@@ -34,7 +34,7 @@ var MtGox = Class({
 
                 console.log((new Date()) + '[' + to + '] MtGox, Successfully responded.');
             } else {
-                ircWrite(t, "Bitstamp, ERROR: JSON Response couldn't parsed.");
+                ircWrite(to, "Bitstamp, ERROR: JSON Response couldn't parsed.");
                 console.log((new Date()) + '[' + to + '] MtGox, ERROR: JSON Response couldn\'t parsed.');
             }
         });

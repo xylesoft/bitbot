@@ -1,10 +1,11 @@
 var irc = require('irc');
 var Bitstamp = require('./bitstamp');
 var MtGox = require('./mtgox');
+var Config = require('./config');
 
 // setup IRC client.
-var client = new irc.Client('irc.domain.com', 'bitbot_test', {
-    channels: ['#moose']
+var client = new irc.Client(Config.irc_server, Config.bot_name, {
+    channels: Config.channels
 });
 
 // Prepare Bitstamp lib
@@ -14,8 +15,8 @@ var bsApi = new Bitstamp({
 
 // Prepare MtGox lib
 var mtApi = new MtGox({
-	key: 'ENTER KEY',
-	secret: 'ENTER SECET',
+	key: Config.mtgox.key,
+	secret: Config.mtgox.secret
 });
 
 // Listen to messages
